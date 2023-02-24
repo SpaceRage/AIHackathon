@@ -24,18 +24,129 @@
 
 <body>
 
-  <body>
-    <!-- The navigation bar at the top of the page -->
+  <!-- The navigation bar at the top of the page -->
 
-      <nav class="navbar">
-      <ul class="nav-list">
-        <li><a href="#Model">Model</a></li>
-        <li><a href="#Background">Background</a></li>
-        <li><a href="#About Us">About Us</a></li>
-      </ul>
-    </nav>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="#">Model</a></li>
+      <li><a href="#background-scroll">Background</a></li>
+      <li><a href="#about-scroll">About Us</a></li>
+    </ul>
+  </nav>
+  <div>
 
-    <!-- The -->
+    <div class="section" id="model-form">
+      <h1 class="model-heading"> Model </h1>
+
+      <!-- The panel with the model -->
+      <div id="input-form">
+        <form action="placeholder.js">
+
+          <div class="image-upload">
+            <label for="image_upload" id="custom_image_upload">
+              Browse
+            </label>
+            <input accept="image/*" type="file" id="image_upload" name="filename">
+            <img id="user_preview" src="" alt="[Image Preview]">
+          </div>
+
+          <!-- The other information the user needs to upload, which is age and gender-->
+          <div id="gender-age">
+
+            <!-- Gender -->
+            <div id="gender">
+              <label for="gender-male"> Male </label>
+              <input type="radio" name="gender-choice" value="choice-1">
+              <label for="gender-female"> Female </label>
+              <input type="radio" name="gender-choice" value="choice-2">
+            </div>
+
+            <!-- Age -->
+            <div id="age">
+              <label for="age"> Age: </label>
+              <input type="number" min="0" name="age-input">
+            </div>
+
+          </div>
+
+          <label for="image_submit" id="custom_image_submit">Upload</label>
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+
+    <!-- Background -->
+    <div id="background-scroll"></div>
+    <div class="section" id="background">
+      <h1> Background </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+        vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut
+        orci dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at
+        molestie quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis
+        ligula. Maecenas pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus
+        tristique at. Integer sit amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis
+        urna.
+      </p>
+    </div>
+
+    <div id="about-scroll"></div>
+    <div class="section" id="about">
+      <h1> About Us </h1>
+
+      <div id="rajiv-intro">
+        <h3> Rajiv </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+          vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut orci
+          dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at molestie
+          quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis ligula. Maecenas
+          pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus tristique at. Integer sit
+          amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis urna.
+        </p>
+        <img id="rajiv-photo" src="">
+      </div>
+
+      <div id="adam-intro">
+        <h3> Adam </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+          vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut orci
+          dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at molestie
+          quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis ligula. Maecenas
+          pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus tristique at. Integer sit
+          amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis urna.
+        </p>
+        <img id="rajiv-photo" src="">
+      </div>
+
+      <div id="luisa-intro">
+        <h3> Luisa </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+          vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut
+          orci dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at
+          molestie quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis
+          ligula. Maecenas pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus
+          tristique at. Integer sit amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis
+          urna.
+        </p>
+        <img id="rajiv-photo" src="">
+      </div>
+
+      <div id="mad-intro">
+        <h3> Madhav </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+          vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut orci
+          dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at molestie
+          quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis ligula. Maecenas
+          pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus tristique at. Integer sit
+          amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis urna.
+        </p>
+        <img id="rajiv-photo" src="">
+      </div>
+    </div>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
@@ -47,6 +158,16 @@
       ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
-  </body>
+</body>
+
+<footer>
+  <!-- Legal disclaimer-->
+  <div>
+    <label for="disclaimer">
+      Disclaimer: This tool is not for clinical use, the results of this model do not constitute a clinical diagnosis
+      or indication. Consult a medical professional for true concerns.
+    </label>
+  </div>
+</footer>
 
 </html>

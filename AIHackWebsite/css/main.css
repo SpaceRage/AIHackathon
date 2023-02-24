@@ -11,10 +11,16 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&family=Source+Code+Pro:wght@300;500&display=swap');
+
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  display: table;
+  margin: auto;
+  background-color: black;
 }
 
 /*
@@ -265,7 +271,136 @@ textarea {
 /*
   * WEBSITE FORMATTING:
   */
+body {
+  background-color: black;
+  display: table-cell;
+  vertical-align: middle;
+}
 
-.navbar {
-  display: flex;
+h1 {
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  color: white;
+  font-size: 36px;
+}
+
+h3 {
+  padding: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  color: white;
+  font-size: 24px;
+}
+
+p {
+  padding: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+}
+
+.nav-list {
+  position: fixed;
+  width: 100%;
+  float: left;
+  margin: 0 0 1em 0;
+  padding: 0;
+  background-color: black;
+  border-bottom: 1px solid #555;
+}
+
+.nav-list ul {
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nav-list li {
+  background-color: black;
+  float: left;
+  height: 60px;
+  width: 33.3333%;
+  text-align: center;
+  list-style-type: none;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+.nav-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: black;
+}
+
+.nav-list li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+  color: white;
+  margin-top: 5px;
+}
+
+.section {
+  margin-top: 10vh;
+}
+
+#input-form {
+  font-family: 'Source Code Pro', monospace;
+  background-color: lightgray;
+  padding: 20px;
+  text-align: center;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="submit"] {
+  display: none;
+}
+
+#custom_image_upload {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#user_preview {
+  margin-top: 10px;
+  display: block;
+  max-width: 800px;
+  width: 50%;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#gender-age {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+#custom_image_submit {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+footer {
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
 }
