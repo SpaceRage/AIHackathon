@@ -35,6 +35,8 @@
   </nav>
   <div>
 
+    <div class="bodydiv">
+
     <div class="section" id="model-form">
       <h1 class="model-heading"> Model </h1>
 
@@ -50,7 +52,7 @@
             <img id="user_preview" src="" alt="[Image Preview]">
           </div>
 
-          <!-- The other information the user needs to upload, which is age and gender-->
+          <!-- The other information the user needs to upload, which is age, gender and localization-->
           <div id="gender-age">
 
             <!-- Gender -->
@@ -66,6 +68,21 @@
               <label for="age"> Age: </label>
               <input type="number" min="0" name="age-input">
             </div>
+            
+            <!-- Localization -->
+            <div id="localization">
+              <label for="localization"> Localization: </label>
+              <select name="localization" id="location-select">
+                <option value="unknown">Unknown</option>
+                <option value="lower-ex">Lower Extremity</option>
+                <option value="upper-ex">Upper Extremity</option>
+                <option value="torso">Torso</option>
+                <option value="head-neck">Head/Neck</option>
+                <option value="palm-sole">Palm/Sole</option>
+                <option value="oral-genital">Oral/Genital</option>
+                <option value="hands-feet">Oral/Genital</option>
+              </select>
+            </div>
 
           </div>
 
@@ -77,20 +94,34 @@
 
     <!-- Background -->
     <div id="background-scroll"></div>
+
     <div class="section" id="background">
       <h1> Background </h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
-        vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut
-        orci dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at
-        molestie quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis
-        ligula. Maecenas pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus
-        tristique at. Integer sit amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis
-        urna.
+
+        As atmospheric UVA and UVB radiation levels have risen over the past decades due to global warming, the risk of skin cancer and its related complications has risen alongside it [4]. With this increased risk, more patients have become curious about whether their skin lesions may be benign or indicative of melanoma or carcinoma. This, paired with the growing popularity of telehealth, has drawn many of these patients to perform check-ups online, and this opened the market for image-processing-based applications. These apps provide pseudo diagnoses for cancerous lesions, and although they claim levels of success upwards of 90% accuracy in detecting malignant lesions [3], meta-analyses show rates of even 30% are optimistic [7]. This discrepancy is only amplified by the fact that many of these applications, which are trained based on physician diagnoses [3].
+
       </p>
     </div>
 
+    <div class="section" id="background">
+
+      <h1> Model Data </h1>
+
+      <p>
+
+      The data that many modern applications train on use American-made image datasets such as the HAM10000, which contain zoomed color images of various skin lesions. Albeit these datasets are often specific in terms of metadata, they are also largely unrepresentative across the range of human skin tones, even with the consideration that skin lesions are more common in those with light skin. This leads to inherent bias in the applications which decreases the accuracy of diagnoses in dark-skinned patients, similar to the implicit bias in many physicians who are often trained on primarily light-skinned patients and have more difficulty recognizing malignancy in dark-skinned lesions [6].
+      
+      <br> <br>
+
+      Our model aims to remove a large component of this bias by training it on a more representative and inclusive dataset, provided by the International Skin Imaging Collaboration (ISIC) [2] and merged with a portion of the HAM10000 set. Images with metadata containing an unknown diagnosis were removed, and the resulting dataset was converted to greyscale and preprocessed before training the model.
+
+      </p>>
+
+    </div>
+
     <div id="about-scroll"></div>
+
     <div class="section" id="about">
       <h1> About Us </h1>
 
@@ -160,12 +191,15 @@
     <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
+</div>
+
 <footer>
   <!-- Legal disclaimer-->
   <div>
     <label for="disclaimer">
       Disclaimer: This tool is not for clinical use, the results of this model do not constitute a clinical diagnosis
-      or indication. Consult a medical professional for true concerns.
+      <br>
+      Consult a medical professional for true concerns.
     </label>
   </div>
 </footer>
