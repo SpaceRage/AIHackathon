@@ -1,6 +1,9 @@
-train
+images
 .idea
-ISIC_2020_Train_DICOM_corrected.zip
-png
-custom_gs
-norm_gs
+ISIC_2020_Training_JPEG.zip
+ISIC_2020_Training_GroundTruth_v2.csv
+tmp
+train
+val
+test
+.vscode
