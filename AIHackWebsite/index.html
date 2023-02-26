@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title> Didn't I Do It For You? </title>
+  <title> Responsible AI Hackathon: Spotcheck </title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +24,8 @@
 </head>
 
 <body>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/request/2.88.2/index.min.js"></script>
+  <script src="main.js"></script>
   <!-- The navigation bar at the top of the page -->
 
   <nav class="navbar">
@@ -49,7 +50,7 @@
 
       <!-- The panel with the model -->
       <div id="input-form">
-        <form action="placeholder.js">
+        <form action="main.js">
 
           <div class="flex-container">
             <div class="image-upload">
@@ -124,6 +125,14 @@
         </p>
     </div>
 
+    <div class="section" id="background">
+      <h2> Modeling Method </h2>
+        <p>
+          The model is built using the Keras API with TensorFlow as the backend. It takes as input images of size 224x224 pixels, along with the patient's age, sex, and the location of the skin lesion.
+          The ResNet50 architecture is used as the base model for lesion extraction. The base model is frozen so that only the fully connected layers are trained during the training process and speeding up the process. The fully connected layers include age, sex, and localization as inputs to the model, which are combined with the extracted features from the base model. The model's architecture is optimized using the Keras Tuner API, which searches for the optimal set of hyperparameters such as the number of layers, number of units per layer, learning rate, dropout rate, etc. The model is trained using binary cross-entropy loss and optimized using the Adam optimizer. The accuracy of the model is evaluated using the test dataset. Finally, the trained model is saved for later use in the final website.          
+        </p>
+    </div>
+
     <div class="flex-container">
       <div class="section" id="model">
         <br>
@@ -168,7 +177,7 @@
             Hi! I’m Rajiv, currently studying Computer Science and Business Administration. In this project, I worked primarily on the website, the bridge backend/API between the site and model, and the image processing script for masking/filtering our dataset as well as inputted images. Through this project, I have improved my knowledge in areas like OpenCV, TensorFlow, web development, and crafting APIs.
           </p>
         </div>
-        <img id="rajiv-photo" src="img/rajiv.jpeg" height="250" width="200">
+        <img id="rajiv-photo" src="img/rajiv.jpeg" height="250" width="210">
       </div>
 
       <div class="flex-container" id="luisa-intro">
@@ -178,7 +187,7 @@
             Hello! I’m Luisa, studying Computer Science and Mathematics. For this project, I mostly focused on the website itself and working with HTML files and CSS stylesheets, brainstorming the information that we want to show and designing the look and feel of our website. I also dabbled with a bit of OpenCV and image processing. I believe that AI ethics is the single most important AI research field as of now, as emerging technologies and methods for responsible deployment impacts us all. This project intrigued me specifically for its emphasis on fairness, and I’m glad I was able to learn and grow along with my team. 
           </p>
         </div>
-        <img id="luisa-photo" src="img/luisa.jpeg" height="300" width="200">
+        <img id="luisa-photo" src="img/luisa.jpeg" height="300" width="250">
       </div>
 
       <div class="flex-container" id="adam-intro">
@@ -195,15 +204,10 @@
         <div>
           <h3> Madhav Kapa </h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
-            vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut orci
-            dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at molestie
-            quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis ligula. Maecenas
-            pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus tristique at. Integer sit
-            amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis urna.
+            Hi! I’m Madhav, currently studying Computer Science and Physics. In this project, I have worked on building and tweaking the model. In the initial stages, I did initial research on our feasible ideas, and looked for datasets that we could use for training. During the remaining phase of the project, I wrote the script for training and built the model itself using Python, TensorFlor and Keras. 
           </p>
         </div>
-        <img id="mad-photo" src="img/blank_square.png" height="300" width="200">
+        <img id="mad-photo" src="img/mad.png" height="250" width="250">
       </div>
       
     </div>
@@ -244,6 +248,7 @@
 <footer>
   <!-- Legal disclaimer-->
   <div>
+    </div>br>
     <label for="disclaimer">
       Disclaimer: This tool is not for clinical use, the results of this model do not constitute a clinical diagnosis
       <br>
