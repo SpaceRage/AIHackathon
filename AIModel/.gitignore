@@ -1,9 +1,11 @@
 images
-.idea
+archive.zip
 ISIC_2020_Training_JPEG.zip
-ISIC_2020_Training_GroundTruth_v2.csv
+.ipynb_checkpoints
+.idea
+processed_dataset.pickle
+data
+test.h5
 tmp
-train
-val
-test
-.vscode
+data
+data.pkl
