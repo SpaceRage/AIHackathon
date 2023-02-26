@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
-
 </head>
 
 <body>
@@ -35,68 +34,58 @@
       <li><a href="#about-scroll">About Us</a></li>
     </ul>
   </nav>
-
-  <br><br>
-
   <div>
 
     <div class="bodydiv">
 
     <div class="section" id="model-form">
-
-      <h1> Responsible AI Hackathon: SpotCheck </h1>
-
-      <h2 class="model-heading"> Model </h2>
+      <h1 class="model-heading"> Model </h1>
 
       <!-- The panel with the model -->
       <div id="input-form">
         <form action="main.js">
 
-          <div class="flex-container">
-            <div class="image-upload">
-              <label for="image_upload" id="custom_image_upload">
-                Browse
-              </label>
-              <input accept="image/*" type="file" id="image_upload" name="filename">
-              <img id="user_preview" src="img/transparent-pic.png" alt="[Image Preview]">
-            </div>
-
-            <!-- The other information the user needs to upload, which is age, gender and localization-->
-            <div id="gender-age">
-
-              <!-- Gender -->
-              <div id="gender">
-                <label for="gender-male"> Male </label>
-                <input type="radio" name="gender-choice" value="choice-1">
-                <label for="gender-female"> Female </label>
-                <input type="radio" name="gender-choice" value="choice-2">
-              </div>
-
-              <!-- Age -->
-              <div id="age">
-                <label for="age"> Age: </label>
-                <input type="number" min="0" name="age-input">
-              </div>
-              
-              <!-- Localization -->
-              <div id="localization">
-                <label for="localization"> Localization: </label>
-                <select name="localization" id="location-select">
-                  <option value="unknown">Unknown</option>
-                  <option value="lower-ex">Lower Extremity</option>
-                  <option value="upper-ex">Upper Extremity</option>
-                  <option value="torso">Torso</option>
-                  <option value="head-neck">Head/Neck</option>
-                  <option value="palm-sole">Palm/Sole</option>
-                  <option value="oral-genital">Oral/Genital</option>
-                  <option value="hands-feet">Oral/Genital</option>
-                </select>
-              </div>
-
-            </div>
+          <div class="image-upload">
+            <label for="image_upload" id="custom_image_upload">
+              Browse
+            </label>
+            <input accept="image/*" type="file" id="image_upload" name="filename">
+            <img id="user_preview" src="" alt="[Image Preview]">
           </div>
 
-          <br>
+          <!-- The other information the user needs to upload, which is age, gender and localization-->
+          <div id="gender-age">
+
+            <!-- Gender -->
+            <div id="gender">
+              <label for="gender-male"> Male </label>
+              <input type="radio" name="gender-choice" value="choice-1">
+              <label for="gender-female"> Female </label>
+              <input type="radio" name="gender-choice" value="choice-2">
+            </div>
+
+            <!-- Age -->
+            <div id="age">
+              <label for="age"> Age: </label>
+              <input type="number" min="0" name="age-input">
+            </div>
+            
+            <!-- Localization -->
+            <div id="localization">
+              <label for="localization"> Localization: </label>
+              <select name="localization" id="location-select">
+                <option value="unknown">Unknown</option>
+                <option value="lower-ex">Lower Extremity</option>
+                <option value="upper-ex">Upper Extremity</option>
+                <option value="torso">Torso</option>
+                <option value="head-neck">Head/Neck</option>
+                <option value="palm-sole">Palm/Sole</option>
+                <option value="oral-genital">Oral/Genital</option>
+                <option value="hands-feet">Oral/Genital</option>
+              </select>
+            </div>
+
+          </div>
 
           <label for="image_submit" id="custom_image_submit">Upload</label>
           <input type="submit">
@@ -108,7 +97,7 @@
     <div id="background-scroll"></div>
 
     <div class="section" id="background">
-      <h2> Background </h2>
+      <h1> Background </h1>
       <p>
 
         As atmospheric UVA and UVB radiation levels have risen over the past decades due to global warming, the risk of skin cancer and its related complications has risen alongside it [4]. With this increased risk, more patients have become curious about whether their skin lesions may be benign or indicative of melanoma or carcinoma. This, paired with the growing popularity of telehealth, has drawn many of these patients to perform check-ups online, and this opened the market for image-processing-based applications. These apps provide pseudo diagnoses for cancerous lesions, and although they claim levels of success upwards of 90% accuracy in detecting malignant lesions [3], meta-analyses show rates of even 30% are optimistic [7]. This discrepancy is only amplified by the fact that many of these applications, which are trained based on physician diagnoses [3].
@@ -133,42 +122,14 @@
         </p>
     </div>
 
-    <div class="flex-container">
-      <div class="section" id="model">
-        <br>
-        <h2> Data Normalization </h2>
-        <p>
-          To identify the mark on differing skin types and colors, the image processing script first isolates and blurs out any hair to remove noise. Then, the image is converted to grayscale, and the distribution of black/white levels in the image is equalized to make the skin levels in each image the same, thus the baseline for identifying the mark is the same for each. Finally, the mark is isolated using contour identification, and a mask is applied to the image to isolate the mark and take out any external noise/marks.
-          <br> <br>
-          During processing, the script attempts to resize the dataset images such that they are all of similar sizes to facilitate masking and dataset consistency. However, this can sometimes result in the loss of resolution during processing, which results in visually blurrier images.
-          <br> <br>
-          <br> <br>
-        </p>
-      </div>
-      <div class="section">
-        <h4> Image Processing </h4>
-        <div class="flex-container" id="image-row1" >
-          <img src="img/darkskintest.png" height="200" width="200">
-          <img src="img/darkskintestchanged.png" height="200" width="200">
-        </div>
-        <div class="flex-container" id="image-row2">
-          <img src="img/lightskintest.jpg" height="200" width="200">
-          <img src="img/lightskinchanged.jpg" height="200" width="200">
-        </div>
-          <article> 
-            Image normalization done prior to training.
-            <br>
-            Left: Unprocessed image
-            Right: Normalized image
-          </article>
-      </div>
-      
+      </p>>
+
     </div>
 
     <div id="about-scroll"></div>
 
     <div class="section" id="about">
-      <h2> About Us </h2>
+      <h1> About Us </h1>
 
       <div class="flex-container" id="rajiv-intro">
         <div>
@@ -190,14 +151,18 @@
         <img id="luisa-photo" src="img/luisa.jpeg" height="300" width="250">
       </div>
 
-      <div class="flex-container" id="adam-intro">
-        <div>
-          <h3> Adam Hakansson </h3>
-          <p>
-            Hey! I’m Adam, currently studying bioengineering, and I worked primarily on the background research for this project as well as the data analysis. I’ve gained a background in biological research and MATLAB, and when we came upon literature covering the discrepancies between melanoma cases and prognosis by race, it was the exact type of project we wanted to work on to increase equity in medical diagnoses.
-          </p>
-        </div>
-        <img id="adam-photo" src="img/adam.png" height="250" width="200">
+      <div id="luisa-intro">
+        <h3> Luisa </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lacinia est. Vestibulum aliquam, lorem id
+          vestibulum consequat, arcu sem luctus neque, quis pretium dolor eros et quam. Morbi vestibulum sapien ut
+          orci dignissim sollicitudin. Aenean vestibulum vehicula ipsum ut commodo. Aliquam arcu libero, maximus at
+          molestie quis, aliquet vitae purus. Cras eros massa, tristique venenatis magna id, fermentum venenatis
+          ligula. Maecenas pellentesque tempor dolor at tincidunt. Aliquam mollis magna dui, eu volutpat purus
+          tristique at. Integer sit amet felis id ipsum aliquet dignissim suscipit vel arcu. Fusce venenatis mollis
+          urna.
+        </p>
+        <img id="rajiv-photo" src="">
       </div>
 
       <div class="flex-container" id="mad-intro">
@@ -209,26 +174,6 @@
         </div>
         <img id="mad-photo" src="img/mad.png" height="250" width="250">
       </div>
-      
-    </div>
-
-    <div class="section">
-      <h3> Works Cited </h3>
-      <p>
-        [1] Davis, Lauren E et al. “Current state of melanoma diagnosis and treatment.” Cancer biology & therapy vol. 20,11 (2019): 1366-1379. doi:10.1080/15384047.2019.1640032
-        <br>
-        [2] Isic Challenge, challenge.isic-archive.com/.
-        <br>
-        [3] Jain, Satin et al. “Deep Learning-Based Transfer Learning for Classification of Skin Cancer.” Sensors (Basel, Switzerland) vol. 21,23 8142. 6 Dec. 2021, doi:10.3390/s21238142
-        <br>
-        [4] “Melanoma Incidence and Mortality, United States–2012–2016.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 27 June 2019, www.cdc.gov/cancer/uscs/about/data-briefs/no9-melanoma-incidence-mortality-UnitedStates-2012-2016.htm.
-        <br>
-        [5] “Melanoma: Symptoms, Stages, Diagnosis, Treatment & Prevention.” Cleveland Clinic, my.clevelandclinic.org/health/diseases/14391-melanoma.
-        <br>
-        [6] Ward-Peterson, Melissa et al. “Association Between Race/Ethnicity and Survival of Melanoma Patients in the United States Over 3 Decades: A Secondary Analysis of SEER Data.” Medicine vol. 95,17 (2016): e3315. doi:10.1097/MD.0000000000003315
-        <br>
-        [7] Wolf, Joel A et al. “Diagnostic inaccuracy of smartphone applications for melanoma detection.” JAMA dermatology vol. 149,4 (2013): 422-6. doi:10.1001/jamadermatol.2013.2382
-      </p>
     </div>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>

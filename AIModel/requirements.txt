@@ -1,0 +1,8 @@
+pandas
+numpy
+scikit-learn
+tensorflow==2.11.0
+tensorflow-estimator
+keras-tuner
+Pillow
+tqdm

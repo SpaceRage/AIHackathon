@@ -74,7 +74,7 @@ diag = diag.tolist()
 print(diag)
 
 # %%
-df = df.sample(n=1000, random_state=1)
+df = df.sample(n=100, random_state=1)
 
 # %%
 # copy thoose images to a new folder
@@ -97,7 +97,7 @@ df['image'] = ''
 
 # %%
 for idx in tqdm(df.index):
-    img = Image.open(os.path.join('data', idx + '.jpg'))
+    img = Image.open(os.path.join('tmp/equalized', idx + '.jpg'))
     img = img.resize((224, 224))
     img = np.array(img, dtype=np.float32)  # convert to NumPy array with float32 dtype
     df.at[idx, 'image'] = img

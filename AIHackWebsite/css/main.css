@@ -289,33 +289,13 @@ h1 {
   border-radius: 5px;
 }
 
-h2 {
-  text-align: center;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 500;
-  color: rgb(231, 227, 234);
-  font-size: 25px;
-  background-color: #5c3778;
-  border-radius: 5px;
-}
-
 h3 {
+  padding: 20px;
   font-family: 'Source Code Pro', monospace;
   font-weight: 500;
   color: rgb(231, 227, 234);
   font-size: 24px;
   background-color: #74648c;
-  padding: 8px;
-}
-
-h4 {
-  text-align: center;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 500;
-  color: rgb(231, 227, 234);
-  font-size: 25px;
-  background-color: #74648c;
-  border-radius: 5px;
 }
 
 p {
@@ -328,44 +308,13 @@ p {
   border-radius: 5px;
 }
 
-article {
-  font-size: 15px;
-  font-family: 'Source Code Pro', monospace;
-  color: rgb(231, 227, 234);
-  background-color: #424343;
-  text-align: center;
-  padding: 10px;
-}
-
-aside {
-  width: 30%;
-  padding-left: 0.5rem;
-  margin-left: 0.5rem;
-  float: right;
-  box-shadow: inset 5px 0 5px -5px #29627e;
-  font-style: italic;
-}
-
-aside > p {
-  margin: 0.5rem;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  padding: auto;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
 .bodydiv {
   margin-left: 150px;
   margin-right: 150px;
 }
 
 .nav-list {
-  position: relative;
+  position: fixed;
   width: 100%;
   float: left;
   margin: 0 0 1em 0;
@@ -408,26 +357,15 @@ aside > p {
 }
 
 .section {
-  margin-top: 5vh;
+  margin-top: 10vh;
 }
 
 #input-form {
   font-family: 'Source Code Pro', monospace;
-  background-color: #424343;
+  background-color: #aba3ad;
   padding: 20px;
   text-align: center;
   border-radius: 5px;
-  color: rgb(231, 227, 234);
-  gap: 30px;
-  vertical-align: middle;
-}
-
-#age {
-  margin-top: 2vh;
-}
-
-#localization {
-  margin-top: 2vh;
 }
 
 input[type="file"] {
@@ -450,7 +388,7 @@ input[type="submit"] {
 #user_preview {
   margin-top: 10px;
   display: block;
-  max-width: 30vw;
+  max-width: 800px;
   width: 50%;
   border-radius: 10px;
   margin-top: 20px;
@@ -461,7 +399,6 @@ input[type="submit"] {
 #gender-age {
   margin-top: 10px;
   margin-bottom: 25px;
-  align-content: stretch;
 }
 
 #custom_image_submit {
