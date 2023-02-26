@@ -1,11 +1,11 @@
 import os
 import cv2 as cv
-from PIL import Image
 import numpy as np
-from multiprocessing import Pool
-import multiprocessing as mp
+from PIL import Image
 from tqdm import tqdm
-import pickle
+from multiprocessing import Pool, cpu_count
+
+
 os.makedirs('tmp/processed', exist_ok=True)
 os.makedirs('tmp/equalized', exist_ok=True)
 os.makedirs('tmp/filtered', exist_ok=True)
@@ -82,17 +82,14 @@ def inBounds(coord, dim):
 
 
 # cv.waitKey()
-
 global thres
+
 def process_image(filename):
-    # if file exists, skip
-    if os.path.isfile('tmp/equalized/' + filename):
-        return
     imgcolor = cv.imread('images/' + filename)
-    kernel = np.ones((15, 15), np.uint8)
+    kernel = np.ones((10, 10), np.uint8)
 
     shave = cv.morphologyEx(imgcolor, cv.MORPH_CLOSE, kernel, iterations=2)
-    blur = cv.blur(shave, (15, 15))
+    blur = cv.blur(shave, (10, 10))
 
     img = cv.cvtColor(blur, cv.COLOR_RGB2GRAY)
     dst = crop_img(cv.equalizeHist(img), 0.75)
@@ -100,13 +97,9 @@ def process_image(filename):
 
     contours, hierarchy = cv.findContours(
         threshInv, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-    if len(contours) == 0:
-        return
     blob = max(contours, key=lambda el: cv.contourArea(el))
     #blob = sorted(contours, key=lambda el: cv.contourArea(el))
     M = cv.moments(blob)
-    if M["m00"] == 0:
-        return
     center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
     # print(center)
     (x, y, w, h) = cv.boundingRect(blob)
@@ -146,13 +139,16 @@ def process_image(filename):
     if include:
         Image.fromarray(result).save('tmp/filtered/' + filename)
 
+
+def main():
+    input_path = 'images/'
+    filenames = os.listdir(input_path)
+
+    with Pool(cpu_count()) as pool:
+        list(tqdm(pool.imap_unordered(process_image, filenames), total=len(filenames)))
+
+
 if __name__ == '__main__':
-    # read dataset from pickle file
-    with open('processed_dataset.pickle' , 'rb') as f:
-        dataset = pickle.load(f)
-    pool = Pool(processes=mp.cpu_count()-2)
-    with tqdm(total=len(os.listdir('images/'))) as pbar:
-        for _ in pool.imap_unordered(process_image, os.listdir('images/')):
-            pbar.update()
-    pool.close()
-    pool.join()
+    main()
+
+cv.waitKey()
