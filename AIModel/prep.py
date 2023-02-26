@@ -102,6 +102,8 @@ def process_image(filename):
     blob = max(contours, key=lambda el: cv.contourArea(el))
     #blob = sorted(contours, key=lambda el: cv.contourArea(el))
     M = cv.moments(blob)
+    if M["m00"] == 0:
+        return
     center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
     # print(center)
     (x, y, w, h) = cv.boundingRect(blob)
