@@ -12,6 +12,7 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
+  <link rel="icon" type="image/png" href="icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
@@ -24,8 +25,7 @@
 </head>
 
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/request/2.88.2/index.min.js"></script>
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
   <!-- The navigation bar at the top of the page -->
 
   <nav class="navbar">
@@ -67,15 +67,15 @@
               <!-- Gender -->
               <div id="gender">
                 <label for="gender-male"> Male </label>
-                <input type="radio" name="gender-choice" value="choice-1">
+                <input id="male" type="radio" name="gender-choice" value="male">
                 <label for="gender-female"> Female </label>
-                <input type="radio" name="gender-choice" value="choice-2">
+                <input id="female" type="radio" name="gender-choice" value="female">
               </div>
 
               <!-- Age -->
               <div id="age">
                 <label for="age"> Age: </label>
-                <input type="number" min="0" name="age-input">
+                <input id="age-input" type="number" min="0" name="age-input">
               </div>
               
               <!-- Localization -->
@@ -99,7 +99,7 @@
           <br>
 
           <label for="image_submit" id="custom_image_submit">Upload</label>
-          <input type="submit">
+          <input id="submit" type="submit">
         </form>
       </div>
     </div>

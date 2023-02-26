@@ -9,7 +9,6 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.utils import plot_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from sklearn.preprocessing import LabelBinarizer
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from kerastuner import RandomSearch
 from kerastuner.engine.hyperparameters import HyperParameters
 print("Tensorflow version: ", tf.__version__)
