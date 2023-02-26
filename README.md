@@ -21,7 +21,10 @@ To rectify the discrepancy in AI models underdiagnosing darker-skinned patients 
 7. The model will be saved in the `AIModel` folder as `skin_cancer_diagnosis_model.h5`
 
 ### Running the web app
-1. reate a new virtual environment  called SpotCheck with `python3 -m venv SpotCheck` and install the requirements with `pip install -r requirements.txt`
+1. Download https://drive.google.com/drive/folders/1eI2kVQ4_SLDMZpcSdTkHETtxRu4V329X?usp=sharing
+1. Create a new virtual environment called SpotCheck with `python3 -m venv SpotCheck` and install the requirements with `pip install -r requirements.txt`
 2. cd into the `AIBackend` folder
 3. Run the web app with `python backend.py`
 4. Open the web app at `localhost:5000`
+
+#### Note: The app will crash if the computer does not have a GPU with enough VRAM to run the model. If this is the case, please run the app on a computer with a GPU with at least 4GB of VRAM.

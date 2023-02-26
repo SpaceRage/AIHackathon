@@ -9,3 +9,4 @@ tqdm
 openev
 flask_restful
 flask
+flask_cors

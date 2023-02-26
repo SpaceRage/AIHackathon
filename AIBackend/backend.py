@@ -9,9 +9,12 @@ import json
 import pyperclip
 from io import BytesIO
 import cv2 as cv
+from flask_cors import CORS
+
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 
 @app.route('/')
@@ -24,20 +27,23 @@ def send_image(path):
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
-        # Get the image data from the request
-            img_data = request.files['file'].read()
-            
-            # Get the JSON data from the request
-            json_data = request.get_json()
+    # Get the image data from the request
+    img_data = request.files['file'].read()
 
-            # Decode the image data and create a PIL Image object
-            img = Image.open(BytesIO(base64.b64decode(base64.b64encode(img_data))))
+    # Get the JSON data from the request
+    json_data = request.form.to_dict()
 
-            # Process the image and get the prediction
-            prediction = useModel(process_image(img), json_data['age'], json_data['sex'], json_data['localization'])
-            
-            # Return the prediction as a JSON response
-            return jsonify({'prediction': prediction}), 200  
+    # Decode the image data and create a PIL Image object
+    img = Image.open(BytesIO(base64.b64decode(base64.b64encode(img_data))))
+    # save the image
+    img.save('test.jpg')
+
+    # Process the image and get the prediction
+    prediction = useModel(process_image('test.jpg'), json_data['age'], json_data['sex'], json_data['localization'])
+    print(prediction)
+
+    # Return the prediction as a JSON response
+    return {'data': str(prediction)}, 200
         
 
 
@@ -66,7 +72,9 @@ def scale_contour(cnt, scale):
 def inBounds(coord, dim):
     return coord > dim/3 and coord < dim/3 * 2
 
-def process_image(file):
+def process_image(filename):
+    # open image
+    file = cv.imread(filename)
     imgcolor = file
     kernel = np.ones((10, 10), np.uint8)
 
@@ -121,14 +129,13 @@ def process_image(file):
     #result = cv.bitwise_and(dst, stencil)
     #cv.drawContours(dst, scale_contour(blob, 2), -1, (255, 255, 255), 20)
     #cv.circle(dst, center, 10, (255, 255, 255), 10)
-    Image.fromarray(result).save('tmp/equalized/' + filename)
-    if include:
-        Image.fromarray(result).save('tmp/filtered/' + filename)
+    # save the image
+    cv.imwrite('test.jpg', result)
 
-def useModel(img, age, sex, localization):
+def useModel(image, age, sex, localization):
     # Load the saved model
     model = tf.keras.models.load_model('test.h5')
-
+    img = Image.open('test.jpg')
     # Preprocess the image
     img = img.resize((224, 224))
     img = tf.keras.preprocessing.image.img_to_array(img)
@@ -137,18 +144,16 @@ def useModel(img, age, sex, localization):
     img = np.array([img], dtype='float16')
 
     # Define input values for prediction
-    test_age = np.array([25], dtype='float16')
-    test_sex = np.array([0], dtype='float16')
-    test_localization = np.array([1], dtype='float16')
+    age = np.array([age], dtype='float16')
+    sex = np.array([sex], dtype='float16')
+    localization = np.array([localization], dtype='float16')
 
     # Make a prediction
-    prediction = model.predict([img, test_age, test_sex, test_localization])
+    prediction = model.predict([img, age, sex, localization])
 
     # Return the predicted class
     return np.argmax(prediction)
 
-
-api.add_resource(Model, '/model')
 
 if __name__ == '__main__':
     app.run() 
