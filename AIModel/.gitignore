@@ -1,8 +1,6 @@
 images
 archive.zip
-ISIC_2020_Training_GroundTruth_v2.csv
 ISIC_2020_Training_JPEG.zip
-HAM10000_metadata.csv
 .ipynb_checkpoints
 .idea
 processed_dataset.pickle
