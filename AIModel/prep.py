@@ -97,6 +97,8 @@ def process_image(filename):
 
     contours, hierarchy = cv.findContours(
         threshInv, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+    if len(contours) == 0:
+        return
     blob = max(contours, key=lambda el: cv.contourArea(el))
     #blob = sorted(contours, key=lambda el: cv.contourArea(el))
     M = cv.moments(blob)

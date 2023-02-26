@@ -14,8 +14,8 @@ class Model(Resource):
     def post(self):
         data = request.data
         img_data = base64.b64decode(data)
-        Image.open(img_data).save('img.png')
-        print(img_data)
+        #Image.open(io.BytesIO(img_data)).save('img.png')
+        print(data)
         
 
 def useModel(img):
