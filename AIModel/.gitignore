@@ -6,3 +6,8 @@ HAM10000_metadata.csv
 .ipynb_checkpoints
 .idea
 processed_dataset.pickle
+data
+test.h5
+tmp
+data
+data.pkl
